@@ -1,17 +1,7 @@
-variable "tf_s3_bucket" {
+variable "github_user"{
   type = "string"
-  description = "Bucket to use for TF state"
+  description = "Github user, used to get public keys"
 }
-variable "tf_s3_key" {
-  type = "string"
-  description = "S3 key to use for TF state"
-}
-
-variable "tf_s3_region" {
-  type = "string"
-  description = "Region for TF state bucket"
-}
-
 variable "key_name" {
   type = "string"
   description = "Key pair name"
