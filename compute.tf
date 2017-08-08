@@ -14,10 +14,24 @@ resource "aws_instance" "linux" {
 
   user_data = <<EOF
 #!/usr/bin/env bash
-curl https://github.com/${var.github_user}.keys >> /home/ec2-user/ssh/authorized_keys
+
+# Create user
+adduser ${var.linux_user}
+
+# Get SSH authkeys from Github
+mkdir ~${var.linux_user}/.ssh
+chmod 700 ~${var.linux_user}/.ssh
+curl https://github.com/${var.github_user}.keys >> ~${var.linux_user}/.ssh/authorized_keys
+chmod 600 ~${var.linux_user}/.ssh/authorized_keys
+chown -R ${var.linux_user}: ~${var.linux_user}/.ssh
+
+# Setup sudo
+echo "${var.linux_user} ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/${var.linux_user}
+chmod 440 /etc/sudoers.d/${var.linux_user}
+
 EOF
 }
 
-output "ip" {
-  value = "${aws_instance.linux.public_ip}"
+output "ssh" {
+  value = "${var.linux_user}@${aws_instance.linux.public_ip}"
 }

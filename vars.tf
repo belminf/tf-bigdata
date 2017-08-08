@@ -1,7 +1,13 @@
-variable "github_user"{
+variable "github_user" {
   type = "string"
   description = "Github user, used to get public keys"
 }
+
+variable "linux_user" {
+  type = "string"
+  description = "Linux user to create"
+}
+
 variable "key_name" {
   type = "string"
   description = "Key pair name"
