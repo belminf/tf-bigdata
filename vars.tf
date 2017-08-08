@@ -8,6 +8,11 @@ variable "linux_user" {
   description = "Linux user to create"
 }
 
+variable "win_password" {
+  type = "string"
+  description = "Windows password"
+}
+
 variable "key_name" {
   type = "string"
   description = "Key pair name"
@@ -49,11 +54,12 @@ variable "win_instance_type" {
   description = "AWS instance type"
 }
 
+# Windows Server 2016 Base
 variable "win_amis" {
   type = "map"
   default = {
-    us-east-1 = "ami-a4c7edb2"
-    us-east-2 = "ami-8a7859ef"
+    us-east-1 = "ami-d4dfd1c2"
+    us-east-2 = "ami-06b19063"
   }
   description = "Windows AMIs"
 }
