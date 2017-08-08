@@ -7,6 +7,7 @@ resource "aws_instance" "linux" {
 
   root_block_device {
     volume_size = "${var.linux_root_gb}"
+    volume_type = "${var.linux_root_type}"
   }
 
   vpc_security_group_ids = ["${aws_security_group.linux.id}"]
@@ -50,6 +51,7 @@ resource "aws_instance" "win" {
 
   root_block_device {
     volume_size = "${var.win_root_gb}"
+    volume_type = "${var.win_root_type}"
   }
 
   vpc_security_group_ids = ["${aws_security_group.win.id}"]

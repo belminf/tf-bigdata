@@ -46,11 +46,17 @@ variable "linux_amis" {
 
 variable "linux_root_gb" {
   type = "string"
-  description = "Root volume size (GB)"
+  description = "Linux root volume size (GB)"
+}
+
+variable "linux_root_type" {
+  type = "string"
+  description = "Linux root volume type"
 }
 
 variable "win_instance_type" {
   type = "string"
+  default = "standard"
   description = "AWS instance type"
 }
 
@@ -66,7 +72,13 @@ variable "win_amis" {
 
 variable "win_root_gb" {
   type = "string"
-  description = "Root volume size (GB)"
+  description = "Windows root volume size (GB)"
+}
+
+variable "win_root_type" {
+  type = "string"
+  default = "standard"
+  description = "Windows root volume type"
 }
 
 
