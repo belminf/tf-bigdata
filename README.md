@@ -1,2 +1,3 @@
 # tf-bigdata
-Create my Big Data env for studying
+
+Terraform for my Big Data studying.
