@@ -12,6 +12,11 @@ resource "aws_instance" "linux" {
   vpc_security_group_ids = ["${aws_security_group.linux.id}"]
   subnet_id = "${aws_subnet.default.id}"
 
+  tags = {
+    Name = "bigdata_linux"
+    Project = "bigdata_studying"
+  }
+
   user_data = <<EOF
 #!/usr/bin/env bash
 
