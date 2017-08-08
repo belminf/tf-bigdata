@@ -1,0 +1,15 @@
+github_user = "foobar"
+linux_user = "foobar"
+win_password = "p)2c,at)58V;(AdZ=u@Z9S@s)"
+
+key_name = "my_ssh_key"
+remote_cidr_list = [
+    "192.168.0.0/16",
+]
+
+linux_instance_type = "m4.large"
+linux_root_gb = "100"
+linux_root_type = "gp2"
+
+win_instance_type = "m4.large"
+win_root_gb = "100"
